@@ -1,0 +1,51 @@
+<kasutajad>
+    <kasutaja>
+        <nimi>Рита</nimi>
+        <telefoninr>3725512588</telefoninr>
+        <teenus>
+            <nimetus>Стрижка</nimetus>
+            <makstud>Нет</makstud>
+            <kellaaeg>24.12.2019</kellaaeg>
+        </teenus>
+    </kasutaja>
+
+    <kasutaja>
+        <nimi>Карина</nimi>
+        <telefoninr>3725552558</telefoninr>
+        <teenus>
+            <nimetus>Стрижка</nimetus>
+            <makstud>Да</makstud>
+            <kellaaeg>24.12.2019</kellaaeg>
+        </teenus>
+    </kasutaja>
+
+        <kasutaja>
+        <nimi>Жрина</nimi>
+        <telefoninr>37256789123</telefoninr>
+        <teenus>
+            <nimetus>Покраска</nimetus>
+            <makstud>Да</makstud>
+            <kellaaeg>20.12.2019</kellaaeg>
+        </teenus>
+    </kasutaja>
+
+        <kasutaja>
+        <nimi>Кира</nimi>
+        <telefoninr>3725252788</telefoninr>
+        <teenus>
+            <nimetus>Покраска</nimetus>
+            <makstud>Нет</makstud>
+            <kellaaeg>26.12.2019</kellaaeg>
+        </teenus>
+    </kasutaja>
+
+        <kasutaja>
+        <nimi>Брина</nimi>
+        <telefoninr>3725561118</telefoninr>
+        <teenus>
+            <nimetus>Стрижка</nimetus>
+            <makstud>Да</makstud>
+            <kellaaeg>27.12.2019</kellaaeg>
+        </teenus>
+    </kasutaja>
+</kasutajad>
