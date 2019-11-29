@@ -15,10 +15,11 @@
   + Вывод количества всех данных в таблице
   + Сортировка по всем столбцам
   
-#### Вид сайта
-![UML](https://ibb.co/TwtPvXz)
+### Вид сайта
+
+![View](https://i.imgur.com/51P2Iun.png)
   
-#### XML файл
+### XML файл
 ```
 <kasutajad>
     <kasutaja>
@@ -75,13 +76,13 @@
 
 ## Документация кода PHP
 
-#### Для дизайна страницы использовались Bootstrap 4.3.1 и FontAwesome 4.7.0
+### Для дизайна страницы использовались Bootstrap 4.3.1 и FontAwesome 4.7.0
 
-#### Запрос XML файла
+### Запрос XML файла
 ```
 $kasutajad = simplexml_load_file("inimesed.xml");
 ```
-#### Функция поиска по имени
+### Функция поиска по имени
 ```
 function searchKasutajadByName($query){
     global $kasutajad;
@@ -93,7 +94,7 @@ function searchKasutajadByName($query){
     return $result;
 }
 ```
-#### Вывод данных в талицу
+### Вывод данных в талицу
 ```
 <?php
             
@@ -111,7 +112,7 @@ foreach($kasutajad -> kasutaja as $kasutaja) {
 
 ?>
 ```
-#### Вывод данных в таблицу при поиске
+### Вывод данных в таблицу при поиске
 ```
 <?php
     if(!empty($_POST["searchName"])){
@@ -128,7 +129,7 @@ foreach($kasutajad -> kasutaja as $kasutaja) {
     }
 ?>
 ```
-#### Скрипт сортировки данных
+### Скрипт сортировки данных
 ```
 <script>
   function sortTable(n) {
@@ -223,7 +224,7 @@ foreach($kasutajad -> kasutaja as $kasutaja) {
   + Отменить услугу
   
 ### Администратор
-Пользователь может:
+Администратор может:
   + Просмотреть товар 
   + Зарегистрироваться 
   + Залогиниться
