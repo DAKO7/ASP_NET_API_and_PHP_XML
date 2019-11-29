@@ -212,6 +212,9 @@ foreach($kasutajad -> kasutaja as $kasutaja) {
   + Просмотреть товар 
   + Зарегистрироваться 
   + Залогиниться
+![Просмотреть товар](https://i.imgur.com/XBc6Jfz.png)
+![Залогиниться](https://i.imgur.com/MhbZpSS.png)
+![Зарегистрироваться](https://i.imgur.com/zRQqJAU.png)
 
 ### Пользователь
 Пользователь может:
