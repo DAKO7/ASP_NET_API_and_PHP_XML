@@ -1,0 +1,27 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 1.3rem;
+    zoom: 125%;
+}
+
+a.ActionLinkStyle {
+    /*background: url(../Images/image.gif) no-repeat top left;*/
+    display: block;
+    width: 150px;
+    height: 150px;
+    text-indent: -9999px; /* hides the link text */
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
