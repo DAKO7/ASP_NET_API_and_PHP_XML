@@ -63,7 +63,9 @@ namespace ylesane2.Controllers
                 }
                 else
                 {
-                    Response.Write("<script>alert('You can't make duplicate!')</script>");
+                    TempData["msg"] = "<script>alert('You can not make duplicate');</script>";
+
+                    
                     return RedirectToAction("Create");
                 }
             }
@@ -86,6 +88,7 @@ namespace ylesane2.Controllers
             Product product = db.Products.Find(id);
             if (product == null)
             {
+                
                 return HttpNotFound();
             }
             
