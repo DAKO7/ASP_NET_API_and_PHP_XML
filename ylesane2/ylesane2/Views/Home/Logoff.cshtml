@@ -1,0 +1,21 @@
+﻿@model ylesane2.Models.Product
+
+@{
+    ViewBag.Title = "Logoff";
+}
+
+<h2>Logoff</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    if (Session["Email"] != null)
+    {
+        <meta http-equiv='refresh' content='0; URL=../../Products/Index'>
+
+    }
+    else
+    {
+        <meta http-equiv='refresh' content='0; URL=../../Products/Index'>
+    }
+}
