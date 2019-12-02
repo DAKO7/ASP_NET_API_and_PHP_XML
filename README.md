@@ -130,6 +130,7 @@ foreach($kasutajad -> kasutaja as $kasutaja) {
 ?>
 ```
 ### Скрипт сортировки данных
+[Ссылка на скрипт]: https://stackoverflow.com/questions/58961282/sorting-table-data-onclick-thin-google-app-script
 ```
 <script>
   function sortTable(n) {
