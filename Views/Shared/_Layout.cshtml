@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                    <li class="nav-item">
+                        <a style="font-size: large;" class="navbar-brand" href="../../Home/Index">IluSalong | Kolobok</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="../../Products/Index">Services</a>
+                    </li>
+                    @if (Session["Email"] != null && Convert.ToInt32(Session["RoleId"]) == 2)
+                    {
+                    <li class="nav-item" style="text-align: right;">
+                        <a class="navbar-brand" href="../../Services/Index">Users Services</a>
+                        <a class="navbar-brand" href="../../WorkDays/Index">Work days</a>
+                        <a class="navbar-brand" href="../../Home/Profile">@Session["email"]</a>
+                        <a class="navbar-brand" href="../../Home/Logoff">Log Out</a>
+                    </li>
+                    }
+                    else if (Convert.ToInt32(Session["RoleId"]) != 0 && Session["Email"] != null)
+                    {
+                        <li class="nav-item" style="text-align: right;">
+                            <a class="navbar-brand" href="../../Home/Profile">@Session["email"]</a>
+                            <a class="navbar-brand" href="../../Home/Logoff">Log Out</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="../../Home/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="../../Home/Register">Register</a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Daniil Koroljov</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
+    @*<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>*@
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    @*<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>*@
+</body>
+</html>

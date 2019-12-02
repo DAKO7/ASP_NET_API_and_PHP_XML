@@ -1,0 +1,118 @@
+﻿@model ylesane2.Models.Service
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <div class="col-12">
+        <div class="jumbotron">
+            <h4 class="display-4" style="text-align:center;">
+                Delete service
+            </h4>
+        </div>
+    </div>
+
+@{
+    if (Session["Email"] != null && Convert.ToInt32(Session["RoleId"]) == 2 || Convert.ToInt32(Session["RoleId"]) == 1)
+    {
+
+        <h3>Are you sure you want to delete this?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                   User's ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserId)
+                </dd>
+
+                <dt>
+                    Email
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    Second name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SecondName)
+                </dd>
+
+                <dt>
+                    Phone number
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PhoneNumber)
+                </dd>
+
+                <dt>
+                    Product's ID
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductId)
+                </dd>
+
+                <dt>
+                    Product's name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductName)
+                </dd>
+
+                <dt>
+                    Product's price
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ProductPrice)
+                </dd>
+
+                <dt>
+                    When was booked
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.StartTime)
+                </dd>
+
+                <dt>
+                    Day of reception
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EndTime)
+                </dd>
+
+            </dl>
+            @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color">
+                        <input type="submit" value="Delete" class="btn btn-danger" />
+                    </div>
+                }
+        </div>
+    }
+    else
+    {
+        <meta http-equiv='refresh' content='0; URL=../../Home/Login'>
+    }
+}

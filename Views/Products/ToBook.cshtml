@@ -1,0 +1,92 @@
+﻿<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/jquery-ui-timepicker-addon.min.css" rel="stylesheet" />
+@model ylesane2.Models.Product
+
+@{
+    ViewBag.Title = "Book";
+}
+<div class="col-12">
+    <div class="jumbotron">
+        <h4 class="display-4" style="text-align:center;">
+            Confirmation
+        </h4>
+    </div>
+</div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="container">
+                <div class="text-center mx-auto" style="width: 400px;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(model => model.Name) | @Html.DisplayFor(model => model.Price) €</h5>
+                            <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+                            <h6 class="card-text">
+                                Date of receipt
+                                <select name="WorkDayId" style="overflow: auto;" onfocus='this.size=10;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                                    @foreach (ylesane2.Models.WorkDay day in ViewBag.Days)
+                                    {
+                                        <option value="@day.Id">@day.DateIn.ToString("dd-MMM-yyyy HH:mm tt")</option>
+                                    }
+                                </select>
+                                @*@Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-group mx-sm-3 mb-2 date-time-picker", onkeydown = "return false", onpaste = "return false", autocomplete = "off" } })*@
+                                @*@Html.EditorFor(model => model.EndTime, new { htmlAttributes = new { @class = "form-group mx-sm-3 mb-2 date-time-picker", onkeydown = "return false", onpaste = "return false" } })*@
+                                @Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })
+                            </h6>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-8">
+                                    <input type="submit" value="Confirm" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div Style="text-indent: -9999px;">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @Style = "text-indent: -9999px;" } })
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @Style = "text-indent: -9999px;" } })
+            </div>
+        </div>
+    }
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-timepicker-addon.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(function () {
+                    $(".date-time-picker").datetimepicker({
+                        changeMonth: true,
+                        changeYear: true,
+                        "stepMinute": 5,
+                        minTime: '10:00',
+                        maxTime: '18:00',
+                        startTime: '10:00',
+                        yearRange: "-0:+1",
+                        dateFormat: 'dd-M-yy',
+                        controlType: 'select',
+                        minDate: 1
+
+                    });
+                });
+
+                jQuery.validator.methods.date = function (value, element) {
+                    var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+                    if (isChrome) {
+                        var d = new Date();
+                        return this.optional(element) || !/Invalid|NaN/.test(new Date(d.toLocaleDateString(value)));
+                    } else {
+                        return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+                    }
+                };
+            });
+
+        </script>
+    }
