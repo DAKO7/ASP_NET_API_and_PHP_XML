@@ -52,11 +52,20 @@ namespace ylesane2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,CreatedTime,StartTime,EndTime")] Product product)
         {
+           
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (db.Products.Where(x => x.Name == product.Name).FirstOrDefault() == null)
+                {
+                    db.Products.Add(product);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    Response.Write("<script>alert('You can't make duplicate!')</script>");
+                    return RedirectToAction("Create");
+                }
             }
 
             return View(product);

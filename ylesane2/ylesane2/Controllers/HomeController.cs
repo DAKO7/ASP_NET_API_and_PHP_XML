@@ -37,7 +37,7 @@ namespace ylesane2.Controllers
             ViewBag.user = db.Users;
             ViewBag.products = db.Products;
 
-            return View("index");
+            return View("");
         }
 
         public ActionResult Profile()
